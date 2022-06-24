@@ -7,46 +7,46 @@ import java.util.PriorityQueue;
 
 public class Priorities {
 	
-	public List<Student> getStudents(List<String> events) {
+    public List<Student> getStudents(List<String> events) {
 		
-		Student student;
-		int id;
-		String name;
-		double cgpa;
-		List<Student> studentsList = new ArrayList<>();
+	Student student;
+	int id;
+	String name;
+	double cgpa;
+	List<Student> studentsList = new ArrayList<>();
 		
-		//Öncelikli kuyruk oluşturur ve comparator ile kuyruk sırasının oluşturulma şartlarını belirtir.
-		PriorityQueue<Student> studentPriorityQueue = new PriorityQueue<>(
-				Comparator.comparing(Student::getCgpa).reversed().thenComparing(Student::getName).thenComparing(Student::getId));  
+	//Ã–ncelikli kuyruk oluÅŸturur ve comparator ile kuyruk sÄ±rasÄ±nÄ±n oluÅŸturulma ÅŸartlarÄ±nÄ± belirtir.
+	PriorityQueue<Student> studentPriorityQueue = new PriorityQueue<>(
+		Comparator.comparing(Student::getCgpa).reversed().thenComparing(Student::getName).thenComparing(Student::getId));  
 		
-		for(String event:events) {		//getStudents metoduna parametre olarak gelen listeyi tarar.
-			String[] elements = event.split(" ");		//Liste elemanlarını boşluğa göre ayırarak değerleri diziye atar.
-			if(elements[0].equals("ENTER")) {		
-				id = Integer.valueOf(elements[3]);		//Dizinin elemanlarını sırasıyla kendi tiplerine dönüştürerek değişkenlere atar.
-				name = String.valueOf(elements[1]);
-				cgpa = Double.valueOf(elements[2]);
+	for(String event:events) {		//getStudents metoduna parametre olarak gelen listeyi tarar.
+	    String[] elements = event.split(" ");		//Liste elemanlarÄ±nÄ± boÅŸluÄŸa gÃ¶re ayÄ±rarak deÄŸerleri diziye atar.
+	    if(elements[0].equals("ENTER")) {		
+		id = Integer.valueOf(elements[3]);		//Dizinin elemanlarÄ±nÄ± sÄ±rasÄ±yla kendi tiplerine dÃ¶nÃ¼ÅŸtÃ¼rerek deÄŸiÅŸkenlere atar.
+	        name = String.valueOf(elements[1]);
+		cgpa = Double.valueOf(elements[2]);
 				
-				student = new Student(id, name, cgpa);		//Student nesnesi oluşturulur ve bu nesneyi kuyruğa ekler.
-				studentPriorityQueue.add(student);
-			}
-			else if(elements[0].equals("SERVED") && !studentPriorityQueue.isEmpty()) {
-				studentPriorityQueue.poll();
-			}
-		}
+		student = new Student(id, name, cgpa);		//Student nesnesi oluÅŸturulur ve bu nesneyi kuyruÄŸa ekler.
+		studentPriorityQueue.add(student);
+	    }
+	    else if(elements[0].equals("SERVED") && !studentPriorityQueue.isEmpty()) {
+		studentPriorityQueue.poll();
+	    }
+	}
 		
-        while (!studentPriorityQueue.isEmpty()) {		//Kuyruk boşalıncaya dek kuyruktan listeye ekleme yapar.
+        while (!studentPriorityQueue.isEmpty()) {		//Kuyruk boÅŸalÄ±ncaya dek kuyruktan listeye ekleme yapar.
             studentsList.add(studentPriorityQueue.poll());
         }
 		
-		/*
-		 * studentsList = Arrays.asList(studentPriorityQueue.toArray(new Student[studentPriorityQueue.size()]));
-		 * Kuyruğu diziye, diziyi listeye döndürme işlemi. Bu yolu denedim ama hatalı sıralama elde ettim. Bunun sebebi Priority Queue'nin
-		 * elemanlarını sıralama koşullarına göre tutmuyor oluşu ve listeye dönüştürülürken de belirtilen koşullara göre ekleme yapmıyor.
-		 * .poll() metodu ile koşula uygun çekme ve listeye ekleme işlemi gerçekleştirilebilir. 
-		*/
+	/*
+	 * studentsList = Arrays.asList(studentPriorityQueue.toArray(new Student[studentPriorityQueue.size()]));
+	 * KuyruÄŸu diziye, diziyi listeye dÃ¶ndÃ¼rme iÅŸlemi. Bu yolu denedim ama hatalÄ± sÄ±ralama elde ettim. Bunun sebebi Priority Queue'nin
+	 * elemanlarÄ±nÄ± sÄ±ralama koÅŸullarÄ±na gÃ¶re tutmuyor oluÅŸu ve listeye dÃ¶nÃ¼ÅŸtÃ¼rÃ¼lÃ¼rken de belirtilen koÅŸullara gÃ¶re ekleme yapmÄ±yor.
+	 * .poll() metodu ile koÅŸula uygun Ã§ekme ve listeye ekleme iÅŸlemi gerÃ§ekleÅŸtirilebilir. 
+	 */
         
-		return studentsList;
+	return studentsList;
 		
-	}
+    }
 	
 }
