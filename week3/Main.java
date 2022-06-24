@@ -16,9 +16,9 @@ public class Main {
 	try {
 	    Scanner scanner = new Scanner(System.in);		//Metoda gönderilecek verileri kullanıcıdan alır ve events listesine atar.
 	    for(int i=0; i<12; i++) {
-	        String str;
-		str = scanner.nextLine();
-		events.add(str);
+	        String event;
+		event = scanner.nextLine();
+		events.add(event);
 	    }
 	    scanner.close();
 	} catch(Exception e) {
