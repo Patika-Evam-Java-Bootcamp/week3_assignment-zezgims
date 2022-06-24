@@ -26,7 +26,7 @@ public class Priorities {
 	        name = String.valueOf(elements[1]);
 		cgpa = Double.valueOf(elements[2]);
 				
-		student = new Student(id, name, cgpa);		//Student nesnesi oluşturulur ve bu nesneyi kuyruğa ekler.
+		student = new Student(id, name, cgpa);		//Student nesnesi oluşturur ve bu nesneyi kuyruğa ekler.
 		studentPriorityQueue.add(student);
 	    }
 	    else if(elements[0].equals("SERVED") && !studentPriorityQueue.isEmpty()) {
