@@ -10,12 +10,14 @@ public class Main {
 		
 	Priorities priorities = new Priorities();
 		
+	int totalEvents;
 	List<String> events = new ArrayList<String>();
 	List<Student> studentsList;
-		
+	
 	try {
 	    Scanner scanner = new Scanner(System.in);		//Metoda gönderilecek verileri kullanıcıdan alır ve events listesine atar.
-	    for(int i=0; i<12; i++) {
+	    totalEvents = Integer.parseInt(scanner.nextLine()); 
+	    for(int i=0; i<totalEvents; i++) {
 	        String event;
 		event = scanner.nextLine();
 		events.add(event);
