@@ -38,7 +38,6 @@ public class Priorities {
             studentsList.add(studentPriorityQueue.poll());
         }
 		
-	
 	//studentsList = Arrays.asList(studentPriorityQueue.toArray(new Student[studentPriorityQueue.size()]));
 	/*
 	 * Kuyruğu diziye, diziyi listeye döndürme işlemi. Bu yolu denedim ama hatalı sıralama elde ettim. Bunun sebebi Priority Queue'nin
