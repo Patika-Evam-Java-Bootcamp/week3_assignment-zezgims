@@ -40,7 +40,7 @@ public class Priorities {
 		
 	//studentsList = Arrays.asList(studentPriorityQueue.toArray(new Student[studentPriorityQueue.size()]));
 	/*
-	 Kuyruğu diziye, diziyi listeye döndürme işlemi. Bu yolu denedim ama hatalı sıralama elde ettim. Bunun sebebi Priority Queue'nin
+	 Kuyruğu diziye, diziyi listeye döndürme işlemi. Bu yolu denedim ama hatalı sıralama elde ettim. Bunun sebebi Priority Queue'de
 	 elemanların öncelik koşullarına göre depolanmaması. Bu yüzden listeye dönüştürülürken elemanlar belirtilen öncelik koşullarına göre 
 	 değil Priority Queue'de bulunma sırasına göre listeye aktarılıyor.
 	 .poll() metodu kuyrukta bulunan en öncelikli elemanı çekmeyi garanti ettiği için bu metot ile listeye ekleme işlemi gerçekleştirilebilir. 
